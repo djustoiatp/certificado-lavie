@@ -467,13 +467,35 @@ function baixarPDF(){
   const btn=document.getElementById('btn-pdf');
   btn.textContent='Gerando PDF...';btn.disabled=true;
   html2canvas(el,{scale:2.5,backgroundColor:'#fdfaf5',useCORS:true,logging:false}).then(canvas=>{
-    const imgData=canvas.toDataURL('image/jpeg',0.95);
     const{jsPDF}=window.jspdf;
     const pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-    const pageW=pdf.internal.pageSize.getWidth();const pageH=pdf.internal.pageSize.getHeight();
-    const margin=15;const imgW=pageW-margin*2;const imgH=(canvas.height*imgW)/canvas.width;
-    const posY=Math.max(margin,(pageH-imgH)/2);
-    pdf.addImage(imgData,'JPEG',margin,posY,imgW,imgH);
+    const pageW=pdf.internal.pageSize.getWidth();
+    const pageH=pdf.internal.pageSize.getHeight();
+    const margin=10;
+    const imgW=pageW-margin*2;
+    const imgH=(canvas.height*imgW)/canvas.width;
+    const usableH=pageH-margin*2;
+    if(imgH<=usableH){
+      const posY=Math.max(margin,(pageH-imgH)/2);
+      pdf.addImage(canvas.toDataURL('image/jpeg',0.95),'JPEG',margin,posY,imgW,imgH);
+    } else {
+      const pxPerMm=canvas.width/imgW;
+      const sliceHpx=Math.floor(usableH*pxPerMm);
+      let srcY=0;
+      let pageNum=0;
+      while(srcY<canvas.height){
+        const sliceH=Math.min(sliceHpx,canvas.height-srcY);
+        const tmp=document.createElement('canvas');
+        tmp.width=canvas.width;tmp.height=sliceH;
+        const ctx=tmp.getContext('2d');
+        ctx.fillStyle='#fdfaf5';ctx.fillRect(0,0,tmp.width,tmp.height);
+        ctx.drawImage(canvas,0,srcY,canvas.width,sliceH,0,0,canvas.width,sliceH);
+        const sliceImgH=(sliceH/pxPerMm);
+        if(pageNum>0)pdf.addPage();
+        pdf.addImage(tmp.toDataURL('image/jpeg',0.95),'JPEG',margin,margin,imgW,sliceImgH);
+        srcY+=sliceH;pageNum++;
+      }
+    }
     const nomeCliente=document.getElementById('c-cliente').textContent.split('·')[0].trim().replace(/\s+/g,'_').slice(0,40);
     pdf.save('Certificado_LaVieJoias_'+nomeCliente+'.pdf');
     btn.textContent='Baixar certificado em PDF';btn.disabled=false;
