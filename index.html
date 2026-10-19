@@ -90,6 +90,8 @@
   .cert-seal-top { font-family: 'Jost', sans-serif; font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
   .cert-seal-code { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; color: var(--ink); letter-spacing: 0.1em; }
   .cert-footer { text-align: center; margin-top: 14px; font-family: 'Jost', sans-serif; font-size: 9px; color: var(--gold-light); letter-spacing: 0.18em; text-transform: uppercase; }
+  .cert-signature { text-align: center; margin-top: 10px; padding-top: 8px; border-top: 0.5px dashed var(--gold-light); font-family: 'Jost', sans-serif; font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); opacity: 0.75; }
+  .cert-signature span { color: var(--gold); font-weight: 500; }
   .final-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1.5rem; }
   .final-actions .btn-primary, .final-actions .btn-secondary { flex: 1; min-width: 180px; margin-top: 0; }
 </style>
@@ -171,6 +173,7 @@
       </div>
       <div class="cert-seal"><div class="cert-seal-ring"><div class="cert-seal-top">Código</div><div class="cert-seal-code" id="c-codigo">—</div></div></div>
       <div class="cert-footer">La Vie Joias · CNPJ 53.130.961/0001-87 · @laviejoiias · Olinda, PE</div>
+      <div class="cert-signature">Desenvolvido por <span>Djusto Soluções Digitais</span></div>
     </div>
     <div class="final-actions">
       <button class="btn-primary" id="btn-pdf" onclick="baixarPDF()">Baixar certificado em PDF</button>
@@ -205,15 +208,10 @@ La Vie Joias e Semijoias — CNPJ 53.130.961/0001-87 — Olinda, PE
 SOBRE A MOISSANITE
 A moissanite é uma pedra sintética criada em laboratório, de alta durabilidade e brilho. NÃO se trata de gema natural. Os nomes usados nas descrições — como "colombiana", "água marinha", "safira pink" e similares — referem-se exclusivamente À COR da pedra, e não à origem ou composição mineralógica. A La Vie Joias não comercializa gemas naturais, salvo descrição expressa com laudo técnico.
 
-1. PRAZO E COBERTURA
+1. PRAZO DE GARANTIA
 Garantia de 6 (seis) meses contra defeitos de fabricação comprovados, contados da emissão deste certificado, nos termos do art. 26 do Código de Defesa do Consumidor (Lei 8.078/90).
 
-2. O QUE A GARANTIA COBRE
-a) Problemas estruturais na peça (arremate);
-b) Defeitos no encaixe da pedra (cravação mal executada, comprovada por análise técnica);
-c) Falhas de fabricação identificadas após análise presencial na loja.
-
-3. EXCLUSÕES EXPRESSAS DE GARANTIA
+2. EXCLUSÕES EXPRESSAS DE GARANTIA
 A garantia NÃO cobre, em nenhuma hipótese:
 a) Serviços de solda em qualquer parte da peça (não realizamos solda em garantia);
 b) Perda ou queda da moissanite, independentemente da causa;
@@ -225,16 +223,16 @@ g) Desgaste natural pelo uso contínuo;
 h) Consertos por terceiros não autorizados pela La Vie Joias;
 i) Danos estéticos (arranhões, oxidação) pelo uso.
 
-4. PRAZO DE MANUTENÇÃO
+3. PRAZO DE MANUTENÇÃO
 Peças encaminhadas para manutenção têm prazo de retorno de até 90 (noventa) dias corridos, podendo ser devolvidas antes conforme a complexidade do serviço. O prazo inicia na data de recebimento mediante protocolo de entrega.
 
-5. PROCEDIMENTO PARA ACIONAMENTO
+4. PROCEDIMENTO PARA ACIONAMENTO
 Exige: (i) este certificado; (ii) comprovante de compra; (iii) análise presencial na loja La Vie Joias, Olinda, PE; (iv) protocolo de entrega. Peças enviadas sem protocolo prévio não serão aceitas.
 
-6. LIMITAÇÃO DE RESPONSABILIDADE
+5. LIMITAÇÃO DE RESPONSABILIDADE
 A responsabilidade da La Vie Joias limita-se ao reparo da peça com defeito comprovado. Não há reposição de pedra nem indenizações adicionais.
 
-7. FORO
+6. FORO
 Fica eleito o foro da Comarca de Olinda/PE para dirimir quaisquer controvérsias.
 `;
 
@@ -244,13 +242,10 @@ La Vie Joias e Semijoias — CNPJ 53.130.961/0001-87 — Olinda, PE
 DECLARAÇÃO IMPORTANTE SOBRE AS PEDRAS
 As pedras utilizadas nas peças da La Vie Joias são pedras sintéticas ou semipreciosas de baixo custo. Os nomes usados nas descrições — como "colombiana", "água marinha", "safira pink", "esmeralda", "ametista" e similares — referem-se EXCLUSIVAMENTE À COR da pedra, e não à sua origem, composição mineralógica ou valor gemológico. A La Vie Joias NÃO comercializa gemas naturais certificadas, salvo descrição expressa com laudo gemológico. A aquisição implica ciência e concordância com esta declaração.
 
-1. PRAZO E COBERTURA
+1. PRAZO DE GARANTIA
 Garantia contra defeitos de fabricação comprovados pelo prazo indicado, nos termos do art. 26 do Código de Defesa do Consumidor (Lei 8.078/90).
 
-2. O QUE A GARANTIA COBRE
-Defeitos estruturais na peça (arremate, cravação) identificados por análise técnica presencial na loja.
-
-3. EXCLUSÕES EXPRESSAS DE GARANTIA
+2. EXCLUSÕES EXPRESSAS DE GARANTIA
 A garantia NÃO cobre, em nenhuma hipótese:
 a) Serviços de solda em qualquer parte da peça (não realizamos solda em garantia);
 b) Variações de cor, textura ou aparência das pedras, características inerentes ao produto;
@@ -262,29 +257,26 @@ g) Contato com água, suor, cloro, sal, perfumes, cremes ou álcool;
 h) Consertos por terceiros não autorizados;
 i) Danos estéticos (arranhões, oxidação) pelo uso.
 
-4. PRAZO DE MANUTENÇÃO
+3. PRAZO DE MANUTENÇÃO
 Peças encaminhadas para manutenção têm prazo de retorno de até 90 (noventa) dias corridos, podendo ser devolvidas antes conforme a complexidade do serviço. O prazo inicia na data de recebimento mediante protocolo de entrega.
 
-5. PROCEDIMENTO PARA ACIONAMENTO
+4. PROCEDIMENTO PARA ACIONAMENTO
 Exige: (i) este certificado; (ii) comprovante de compra; (iii) análise presencial na loja La Vie Joias, Olinda, PE; (iv) protocolo de entrega. Peças sem protocolo prévio não serão aceitas.
 
-6. LIMITAÇÃO DE RESPONSABILIDADE
+5. LIMITAÇÃO DE RESPONSABILIDADE
 A responsabilidade da La Vie Joias limita-se ao reparo da peça com defeito comprovado. Não cabe reposição de pedras nem indenizações adicionais.
 
-7. FORO
+6. FORO
 Fica eleito o foro da Comarca de Olinda/PE.
 `;
 
 const OBS_PADRAO = `CERTIFICADO DE GARANTIA
 La Vie Joias e Semijoias — CNPJ 53.130.961/0001-87 — Olinda, PE
 
-1. PRAZO E COBERTURA
+1. PRAZO DE GARANTIA
 Garantia de 6 (seis) meses contra defeitos de fabricação comprovados, contados da emissão deste certificado, nos termos do art. 26 do Código de Defesa do Consumidor (Lei 8.078/90).
 
-2. O QUE A GARANTIA COBRE
-Defeitos estruturais (arremate, cravação) identificados por análise técnica presencial na loja.
-
-3. EXCLUSÕES EXPRESSAS
+2. EXCLUSÕES EXPRESSAS
 A garantia NÃO cobre:
 a) Serviços de solda em qualquer parte da peça (não realizamos solda em garantia);
 b) Mau uso ou uso inadequado;
@@ -294,13 +286,13 @@ e) Desgaste natural do banho pelo uso contínuo;
 f) Consertos por terceiros não autorizados;
 g) Danos estéticos (arranhões, oxidação) por uso.
 
-4. PRAZO DE MANUTENÇÃO
+3. PRAZO DE MANUTENÇÃO
 Peças encaminhadas para manutenção têm prazo de retorno de até 90 (noventa) dias corridos, podendo ser devolvidas antes conforme a complexidade do serviço. O prazo inicia na data de recebimento mediante protocolo de entrega.
 
-5. PROCEDIMENTO
+4. PROCEDIMENTO
 Apresentar este certificado e comprovante de compra para análise presencial na loja La Vie Joias, Olinda, PE. Emissão de protocolo obrigatória.
 
-6. LIMITAÇÃO DE RESPONSABILIDADE
+5. LIMITAÇÃO DE RESPONSABILIDADE
 A responsabilidade da La Vie Joias limita-se ao reparo ou substituição da peça com defeito comprovado, não cabendo indenizações adicionais.
 
 Foro: Comarca de Olinda/PE.`;
